@@ -1,11 +1,185 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>김소연 바보</title>
+    <title>경북일고 자기계발 실천 프로젝트</title>
+    <title>★분리수거 O X 퀴즈★</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            text-align: center;
+            padding: 100px;
+            background: whitesmoke;
+            display: table-cell;
+        }
+
+        button {
+
+        }
+
+        .w-btn {
+            position: relative;
+            border: none;
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 15px;
+            font-family: "paybooc-Light", sans-serif;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        .w-btn-outline {
+            position: relative;
+            padding: 15px 30px;
+            border-radius: 15px;
+            font-family: "paybooc-Light", sans-serif;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+        .w-btn-outline:active {
+            transform: scale(1.5);
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fbecc6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            line-height: 40px;
+        }
+
+        .quiz-container {
+            background-color: #a7db8e;
+            padding: 30px;
+            border-radius: 70px;
+            box-shadow: 0 0 20px rgba(0.5, 0.5, 0.5, 0.5);
+            text-align: center;
+            color: #ffffff;
+            animation: fadeIn 0.5s ease;
+            line-height: 50px;
+
+        }
+        .names {
+            background-color: #a7db8e;
+            text-align: center;
+            color: #ffffff;
+            
+            
+            
+        }
+        h1 {
+            color: #ffffff;
+        }
+
+        .question {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            line-height: 20px;
+        }
+
+        .answer {
+            margin-bottom: 15px;
+        }
+
+        .result {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 <body>
-    <p>김소연은 바보인가? 정답은 YES!!!!!</p>
     
+    <div class="quiz-container">
+        <h1>자기계발 실천 프로젝트</h1>
+        <h2>경북일고 분리수거 OX퀴즈</h2>
+        
+
+        <div class="question">
+            Q1: 플라스틱으로 만들어진 페트병은 모두 플라스틱류로 분리 배출해야 한다.<br>
+            <label><input type="radio" name="q1" value="O"> O</label>
+            <label><input type="radio" name="q1" value="X"> X</label>
+        </div>
+
+        <div class="question">
+            Q2: 알약 포장재와 카세트 테이프와 같이 여러 재질이 복잡하게 혼합된 경우에 일반쓰레기로 종량제 봉투에 담아 배출해도 된다.<br>
+            <label><input type="radio" name="q2" value="O"> O</label>
+            <label><input type="radio" name="q2" value="X"> X</label>
+        </div>
+
+        <div class="question">
+            Q3: 칫솔은 플라스틱 폐기물로 재활용이 불가능하다.<br>
+            <label><input type="radio" name="q3" value="O"> O</label>
+            <label><input type="radio" name="q3" value="X"> X</label>
+        </div>
+
+        <div class="question">
+            Q4: 프링글스 과자 통은 일반쓰레기로 배출해야 한다.<br>
+            <label><input type="radio" name="q4" value="O"> O</label>
+            <label><input type="radio" name="q4" value="X"> X</label>
+        </div>
+
+        <div class="question">
+            Q5: 과자 봉지는 일반 쓰레기로 버려야 한다.<br>
+            <label><input type="radio" name="q5" value="O"> O</label>
+            <label><input type="radio" name="q5" value="X"> X</label>
+        </div>
+
+
+
+        <!-- 나머지 퀴즈들도 위와 같은 방식으로 구성 -->
+        
+        <button class="w-btn w-btn-gra3 w-btn-gra-anim" type="button" onclick="checkAnswers()">
+            정답확인
+        </button>
+        <div class="result" id="final-result"></div>
+        <div class="names">진혁준 이민혁 김소연 이나영</div>
+
+        <script>
+            function checkAnswers() {
+                var q1Answer = document.querySelector('input[name="q1"]:checked').value;
+                var q2Answer = document.querySelector('input[name="q2"]:checked').value;
+                var q3Answer = document.querySelector('input[name="q3"]:checked').value;
+                var q4Answer = document.querySelector('input[name="q4"]:checked').value;
+                var q5Answer = document.querySelector('input[name="q5"]:checked').value;
+                // 나머지 퀴즈에 대한 답도 동일한 방식으로 처리
+                
+                var correctAnswers = ["X", "O","O","O","X" /* 나머지 퀴즈의 정답들을 추가하세요 */];
+                var userAnswers = [q1Answer, q2Answer, q3Answer, q4Answer, q5Answer /* 나머지 퀴즈의 사용자 답들을 추가하세요 */];
+
+                var correctCount = 0;
+                for (var i = 0; i < correctAnswers.length; i++) {
+                    if (userAnswers[i] === correctAnswers[i]) {
+                        correctCount++;
+                    }
+                }
+
+                var finalResultElement = document.getElementById("final-result");
+                finalResultElement.textContent = "총 " + correctCount + "개의 문제를 맞췄습니다.";
+            }
+            
+        </script>
+    </div>
 </body>
 </html>
